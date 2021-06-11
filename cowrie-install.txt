@@ -1,0 +1,76 @@
+#!/usr/bin/bash
+
+# check root
+if [ $EUID -ne 0 ]; then
+   echo "$0 is not running as root. Login with sudo -i."
+   echo "sudo don't work. You must be root"
+  exit 2
+fi
+
+# set mysql root password
+echo -e "Please enter your root mysql password"
+read root_pw
+
+# package needed
+apt install git libssl-dev libffi-dev libmariadb-dev-compat libmariadb-dev \
+ build-essential libpython3-dev python3-minimal authbind virtualenv python-virtualenv -y
+
+# crypt pw
+# python3 -c 'import crypt; print(crypt.crypt("password"))'
+
+adduser --disabled-password --gecos "" cowrie
+su - cowrie
+
+git clone http://github.com/cowrie/cowrie
+cd /home/cowrie/cowrie
+# wget -O etc/cowrie.cfg https://raw.githubusercontent.com/henosch/cowrie/main/etc/cowrie.cfg
+# wget -O etc/userdb.txt https://raw.githubusercontent.com/henosch/cowrie/main/etc/userdb.txt
+# wget -O honeyfs/etc/group https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/group
+# wget -O honeyfs/etc/hostname https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/hostname
+# wget -O honeyfs/etc/issue https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/issue
+# wget -O honeyfs/etc/passwd https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/passwd
+# wget -O honeyfs/etc/resolv.conf https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/resolv.conf
+# wget -O honeyfs/etc/shadow https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/shadow
+# wget -O honeyfs/proc/cpuinfo https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/cpuinfo
+# wget -O honeyfs/proc/meminfo https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/meminfo
+# wget -O honeyfs/proc/modules https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/modules
+# wget -O honeyfs/proc/mounts https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/mounts
+# wget -O honeyfs/proc/version https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/version
+# wget -O requirement-mysql.txt https://raw.githubusercontent.com/henosch/cowrie/main/requirement-mysql.txt
+
+# rename default user
+# python3 bin/fsctl share/cowrie/fs.pickle
+# fs.pickle:/$ mv /home/phil /home/pi
+
+virtualenv --python=python3 cowrie-env
+source cowrie-env/bin/activate
+pip install --upgrade pip
+pip install --upgrade -r requirements.txt
+
+exit
+
+# Please do not change the data, as they are in cowrie.cfg.
+# Access is only available locally
+#
+# mysql settings
+
+sql_user=cowrie
+sql_user_pw=hdjbfhnth@gfghku73hgf3ezutRgQ
+database=cowrie
+
+mysql -u root -p$root_pw -e "CREATE DATABASE $database;"
+mysql -u root -p$root_pw -e "CREATE USER '$sql_user'@'localhost' IDENTIFIED BY '$sql_user_pw'";
+mysql -u root -p$root_pw $database < /home/cowrie/cowrie/docs/sql/mysql.sql
+mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON $database.* TO '$sql_user'@'localhost' IDENTIFIED BY '$sql_user_pw';FLUSH PRIVILEGES;"
+mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$root_pw';FLUSH PRIVILEGES;"
+
+su - cowrie
+cd /home/cowrie/cowrie
+# virtualenv --python=python3 cowrie-env
+source cowrie-env/bin/activate
+pip install --upgrade -r requirement-mysql.txt
+pip install mysqlclient
+exit
+su - cowrie
+cd /home/cowrie/cowrie
+bin/cowrie start
