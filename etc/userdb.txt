@@ -1,0 +1,9 @@
+root:x:admin
+root:x:abc123
+root:x:admin1
+root:x:!root
+root:x:!123456
+root:x:!password
+pi:x:user1
+pi:x:password
+admin:x:admin1
