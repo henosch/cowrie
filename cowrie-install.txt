@@ -55,7 +55,7 @@ exit
 # mysql settings
 
 sql_user=cowrie
-sql_user_pw=hdjbfhnth@gfghku73hgf3ezutRgQ
+sql_user_pw=secret
 database=cowrie
 
 mysql -u root -p$root_pw -e "CREATE DATABASE $database;"
