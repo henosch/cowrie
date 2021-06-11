@@ -65,7 +65,7 @@ mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIE
 
 su - cowrie
 source cowrie/cowrie-env/bin/activate
-pip install cowrie/mysql-connector-python
+pip install mysql-connector-python
 
 exit
 su - cowrie
