@@ -23,7 +23,7 @@ su - cowrie
 
 git clone http://github.com/cowrie/cowrie
 cd /home/cowrie/cowrie
-# wget -O etc/cowrie.cfg https://raw.githubusercontent.com/henosch/cowrie/main/etc/cowrie.cfg
+wget -O etc/cowrie.cfg https://raw.githubusercontent.com/henosch/cowrie/main/etc/cowrie.cfg
 # wget -O etc/userdb.txt https://raw.githubusercontent.com/henosch/cowrie/main/etc/userdb.txt
 # wget -O honeyfs/etc/group https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/group
 # wget -O honeyfs/etc/hostname https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/hostname
