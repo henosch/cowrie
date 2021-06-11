@@ -36,7 +36,7 @@ cd /home/cowrie/cowrie
 # wget -O honeyfs/proc/modules https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/modules
 # wget -O honeyfs/proc/mounts https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/mounts
 # wget -O honeyfs/proc/version https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/version
-# wget -O requirement-mysql.txt https://raw.githubusercontent.com/henosch/cowrie/main/requirement-mysql.txt
+wget -O requirement-mysql.txt https://raw.githubusercontent.com/henosch/cowrie/main/requirement-mysql.txt
 
 # rename default user
 # python3 bin/fsctl share/cowrie/fs.pickle
