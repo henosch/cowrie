@@ -36,7 +36,6 @@ wget -O etc/cowrie.cfg https://raw.githubusercontent.com/henosch/cowrie/main/etc
 # wget -O honeyfs/proc/modules https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/modules
 # wget -O honeyfs/proc/mounts https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/mounts
 # wget -O honeyfs/proc/version https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/version
-wget -O requirement-mysql.txt https://raw.githubusercontent.com/henosch/cowrie/main/requirement-mysql.txt
 
 # rename default user
 # python3 bin/fsctl share/cowrie/fs.pickle
@@ -65,11 +64,9 @@ mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON $database.* TO '$sql_user'@
 mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$root_pw';FLUSH PRIVILEGES;"
 
 su - cowrie
-cd /home/cowrie/cowrie
-# virtualenv --python=python3 cowrie-env
-source cowrie-env/bin/activate
-pip install --upgrade -r requirement-mysql.txt
-pip install mysqlclient
+source cowrie/cowrie-env/bin/activate
+pip install cowrie/mysql-connector-python
+
 exit
 su - cowrie
 cd /home/cowrie/cowrie
