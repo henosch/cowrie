@@ -63,9 +63,15 @@ mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIE
 
 su - cowrie
 
-virtualenv --python=python3 cowrie-env
-source cowrie-env/bin/activate
+##################################
+# This is where the script ends. #
+# Please manually from here.     #
+##################################
+
+cd cowrie
+virtualenv --python=python3 cowrie-ece cowrie-env/bin/activate
 pip install --upgrade pip
 pip install --upgrade -r requirements.txt
 pip install mysql-connector-python
-/home/cowrie/cowrie/bin/cowrie start
+bin/cowrie start
+
