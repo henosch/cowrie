@@ -40,12 +40,12 @@ wget -O honeyfs/proc/meminfo https://raw.githubusercontent.com/henosch/cowrie/ma
 wget -O honeyfs/proc/modules https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/modules
 wget -O honeyfs/proc/mounts https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/mounts
 wget -O honeyfs/proc/version https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/version
-wget -O honeyfs/proc/net/arp https://github.com/henosch/cowrie/main/honeyfs/proc/net/arp
+wget -O honeyfs/proc/net/arp https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/net/arp
 wget -O honeyfs/share/cowrie/fs.pickle https://github.com/henosch/cowrie/raw/main/honeyfs/share/cowrie/fs.pickle
-wget -O honeyfs/share/cowrie/txtcmds/bin/dmesg https://github.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/bin/dmesg
-wget -O honeyfs/share/cowrie/txtcmds/bin/mount https://github.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/bin/mount
-wget -O honeyfs/share/cowrie/txtcmds/usr/bin/lscpu https://github.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/usr/bin/lscpu
-wget -O honeyfs/share/cowrie/txtcmds/usr/bin/nproc https://github.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/usr/bin/nproc
+wget -O honeyfs/share/cowrie/txtcmds/bin/dmesg https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/bin/dmesg
+wget -O honeyfs/share/cowrie/txtcmds/bin/mount https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/bin/mount
+wget -O honeyfs/share/cowrie/txtcmds/usr/bin/lscpu https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/usr/bin/lscpu
+wget -O honeyfs/share/cowrie/txtcmds/usr/bin/nproc https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/usr/bin/nproc
 wget -O etc/cowrie.cfg https://raw.githubusercontent.com/henosch/cowrie/main/etc/cowrie.cfg
 wget -O etc/userdb.txt https://raw.githubusercontent.com/henosch/cowrie/main/etc/userdb.txt
 
