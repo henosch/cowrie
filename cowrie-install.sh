@@ -56,6 +56,8 @@ chown cowrie:cowrie -R /home/cowrie/cowrie
 # fs.pickle:/$ mv /home/phil /home/pi
 
 # set mysql root password
+echo.
+echo.
 echo -e "Please enter your root mysql password"
 read root_pw
 
