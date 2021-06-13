@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+##################################
+# Customize and fake Pi 4 with cowrie. #
+##################################
+
+
 # error
 # output_mysql: got error InterfaceError(2003, "2003: Can't connect to MySQL server on 'localhost:3306' (111 Connection refused)"
 # server was not running on localhost
