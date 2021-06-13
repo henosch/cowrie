@@ -67,7 +67,7 @@ echo -e "Please enter your root mysql password"
 read root_pw
 
 # Please do not change the data, as they are in cowrie.cfg.
-# Access is only available locally
+# Access is only available locally. No security holes
 #
 # mysql settings
 
