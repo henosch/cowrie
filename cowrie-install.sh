@@ -26,7 +26,7 @@ apt install git libssl-dev libffi-dev libmariadb-dev-compat libmariadb-dev \
 
 adduser --disabled-password --gecos "" cowrie
 
-git clone http://github.com/cowrie/cowrie /home/cowrie/cowrie
+git clone https://github.com/cowrie/cowrie /home/cowrie/cowrie
 cd /home/cowrie/cowrie
 mkdir -p honeyfs/home/pi/
 wget -O honeyfs/home/pi/.bash_logout https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/home/pi/.bash_logout
@@ -46,11 +46,11 @@ wget -O honeyfs/proc/modules https://raw.githubusercontent.com/henosch/cowrie/ma
 wget -O honeyfs/proc/mounts https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/mounts
 wget -O honeyfs/proc/version https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/version
 wget -O honeyfs/proc/net/arp https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/net/arp
-wget -O honeyfs/share/cowrie/fs.pickle https://github.com/henosch/cowrie/raw/main/honeyfs/share/cowrie/fs.pickle
-wget -O honeyfs/share/cowrie/txtcmds/bin/dmesg https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/bin/dmesg
-wget -O honeyfs/share/cowrie/txtcmds/bin/mount https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/bin/mount
-wget -O honeyfs/share/cowrie/txtcmds/usr/bin/lscpu https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/usr/bin/lscpu
-wget -O honeyfs/share/cowrie/txtcmds/usr/bin/nproc https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/share/cowrie/txtcmds/usr/bin/nproc
+wget -O share/cowrie/fs.pickle https://github.com/henosch/cowrie/raw/main/share/cowrie/fs.pickle
+wget -O share/cowrie/txtcmds/bin/dmesg https://raw.githubusercontent.com/henosch/cowrie/main/share/cowrie/txtcmds/bin/dmesg
+wget -O share/cowrie/txtcmds/bin/mount https://raw.githubusercontent.com/henosch/cowrie/main/share/cowrie/txtcmds/bin/mount
+wget -O share/cowrie/txtcmds/usr/bin/lscpu https://raw.githubusercontent.com/henosch/cowrie/main/share/cowrie/txtcmds/usr/bin/lscpu
+wget -O share/cowrie/txtcmds/usr/bin/nproc https://raw.githubusercontent.com/henosch/cowrie/main/share/cowrie/txtcmds/usr/bin/nproc
 wget -O etc/cowrie.cfg https://raw.githubusercontent.com/henosch/cowrie/main/etc/cowrie.cfg
 wget -O etc/userdb.txt https://raw.githubusercontent.com/henosch/cowrie/main/etc/userdb.txt
 
@@ -61,8 +61,8 @@ chown cowrie:cowrie -R /home/cowrie/cowrie
 # fs.pickle:/$ mv /home/phil /home/pi
 
 # set mysql root password
-echo.
-echo.
+echo . 
+echo . 
 echo -e "Please enter your root mysql password"
 read root_pw
 
