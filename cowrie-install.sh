@@ -36,6 +36,7 @@ wget -O honeyfs/proc/meminfo https://raw.githubusercontent.com/henosch/cowrie/ma
 wget -O honeyfs/proc/modules https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/modules
 wget -O honeyfs/proc/mounts https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/mounts
 wget -O honeyfs/proc/version https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/version
+wget -O honeyfs/share/cowrie/fs.pickle https://github.com/henosch/cowrie/raw/main/honeyfs/share/cowrie/fs.pickle
 chown cowrie:cowrie -R /home/cowrie/cowrie
 
 # rename default user
@@ -76,4 +77,3 @@ pip install --upgrade pip
 pip install --upgrade -r requirements.txt
 pip install mysql-connector-python
 bin/cowrie start
-
