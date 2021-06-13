@@ -82,6 +82,18 @@ mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON $database.* TO '$sql_user'@
 mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$root_pw';FLUSH PRIVILEGES;"
 mysql -u root -p$root_pw -e "ALTER DATABASE $database CHARACTER SET utf8 COLLATE utf8_general_ci;"
 
+CHARACTER_SET="utf8" # your default character set
+COLLATE="utf8_general_ci" # your default collation
+
+tables=`mysql -u root -p$root_pw -e "SELECT tbl.TABLE_NAME FROM information_schema.TABLES tbl WHERE tbl.TABLE_SCHEMA = '$database' AND tbl.TABLE_TYPE='BASE TABLE'"`
+
+for tableName in $tables; do
+    if [[ "$tableName" != "TABLE_NAME" ]] ; then
+        mysql -u root -p$root_pw -e "ALTER TABLE $database.$tableName DEFAULT CHARACTER SET $CHARACTER_SET COLLATE $COLLATE;"
+        echo "$tableName - done"
+    fi
+done
+
 su - cowrie
 exit
 
