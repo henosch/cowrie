@@ -23,6 +23,12 @@ adduser --disabled-password --gecos "" cowrie
 
 git clone http://github.com/cowrie/cowrie /home/cowrie/cowrie
 cd /home/cowrie/cowrie
+mkdir -p honeyfs/home/pi/
+wget -O honeyfs/home/pi/.bash_logout https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/home/pi/.bash_logout
+wget -O honeyfs/home/pi/.bashrc https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/home/pi/.bashrc
+wget -O honeyfs/home/pi/.profile https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/home/pi/.profile
+wget -O honeyfs/home/pi/data.iso https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/home/pi/data.iso          
+wget -O honeyfs/home/pi/mypw.zip https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/home/pi/mypw.zip         
 wget -O etc/cowrie.cfg https://raw.githubusercontent.com/henosch/cowrie/main/etc/cowrie.cfg
 wget -O etc/userdb.txt https://raw.githubusercontent.com/henosch/cowrie/main/etc/userdb.txt
 wget -O honeyfs/etc/group https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/group
