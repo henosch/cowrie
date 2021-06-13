@@ -29,8 +29,6 @@ wget -O honeyfs/home/pi/.bashrc https://raw.githubusercontent.com/henosch/cowrie
 wget -O honeyfs/home/pi/.profile https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/home/pi/.profile
 wget -O honeyfs/home/pi/data.iso https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/home/pi/data.iso          
 wget -O honeyfs/home/pi/mypw.zip https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/home/pi/mypw.zip         
-wget -O etc/cowrie.cfg https://raw.githubusercontent.com/henosch/cowrie/main/etc/cowrie.cfg
-wget -O etc/userdb.txt https://raw.githubusercontent.com/henosch/cowrie/main/etc/userdb.txt
 wget -O honeyfs/etc/group https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/group
 wget -O honeyfs/etc/hostname https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/hostname
 wget -O honeyfs/etc/issue https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/etc/issue
@@ -43,6 +41,9 @@ wget -O honeyfs/proc/modules https://raw.githubusercontent.com/henosch/cowrie/ma
 wget -O honeyfs/proc/mounts https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/mounts
 wget -O honeyfs/proc/version https://raw.githubusercontent.com/henosch/cowrie/main/honeyfs/proc/version
 wget -O honeyfs/share/cowrie/fs.pickle https://github.com/henosch/cowrie/raw/main/honeyfs/share/cowrie/fs.pickle
+wget -O etc/cowrie.cfg https://raw.githubusercontent.com/henosch/cowrie/main/etc/cowrie.cfg
+wget -O etc/userdb.txt https://raw.githubusercontent.com/henosch/cowrie/main/etc/userdb.txt
+
 chown cowrie:cowrie -R /home/cowrie/cowrie
 
 # rename default user
