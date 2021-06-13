@@ -91,7 +91,8 @@ exit
 ##################################
 
 cd cowrie
-virtualenv --python=python3 cowrie-ece cowrie-env/bin/activate
+virtualenv --python=python3 cowrie-env
+source cowrie-env/bin/activate
 pip install --upgrade pip
 pip install --upgrade -r requirements.txt
 pip install mysql-connector-python
