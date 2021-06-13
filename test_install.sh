@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+########################################
+# Customize and fake Pi 4 with cowrie. #
+########################################
+
+
 # error
 # output_mysql: got error InterfaceError(2003, "2003: Can't connect to MySQL server on 'localhost:3306' (111 Connection refused)"
 # server was not running on localhost
@@ -31,6 +36,8 @@ chown cowrie:cowrie -R /home/cowrie/cowrie
 # fs.pickle:/$ mv /home/phil /home/pi
 
 # set mysql root password
+echo . 
+echo . 
 echo -e "Please enter your root mysql password"
 read root_pw
 
@@ -48,6 +55,19 @@ mysql -u root -p$root_pw -e "CREATE USER '$sql_user'@'localhost' IDENTIFIED BY '
 mysql -u root -p$root_pw $database < /home/cowrie/cowrie/docs/sql/mysql.sql
 mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON $database.* TO '$sql_user'@'localhost' IDENTIFIED BY '$sql_user_pw';FLUSH PRIVILEGES;"
 mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$root_pw';FLUSH PRIVILEGES;"
+mysql -u root -p$root_pw -e "ALTER DATABASE $database CHARACTER SET utf8 COLLATE utf8_general_ci;"
+
+CHARACTER_SET="utf8" # your default character set
+COLLATE="utf8_general_ci" # your default collation
+
+tables=`mysql -u root -p$root_pw -e "SELECT tbl.TABLE_NAME FROM information_schema.TABLES tbl WHERE tbl.TABLE_SCHEMA = '$database' AND tbl.TABLE_TYPE='BASE TABLE'"`
+
+for tableName in $tables; do
+    if [[ "$tableName" != "TABLE_NAME" ]] ; then
+        mysql -u root -p$root_pw -e "ALTER TABLE $database.$tableName DEFAULT CHARACTER SET $CHARACTER_SET COLLATE $COLLATE;"
+        echo "$tableName - done"
+    fi
+done
 
 su - cowrie
 exit
@@ -58,7 +78,8 @@ exit
 ##################################
 
 cd cowrie
-virtualenv --python=python3 cowrie-ece cowrie-env/bin/activate
+virtualenv --python=python3 cowrie-env
+source cowrie-env/bin/activate
 pip install --upgrade pip
 pip install --upgrade -r requirements.txt
 pip install mysql-connector-python
