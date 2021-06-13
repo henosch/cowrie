@@ -60,7 +60,7 @@ mysql -u root -p$root_pw -e "CREATE USER '$sql_user'@'localhost' IDENTIFIED BY '
 mysql -u root -p$root_pw $database < /home/cowrie/cowrie/docs/sql/mysql.sql
 mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON $database.* TO '$sql_user'@'localhost' IDENTIFIED BY '$sql_user_pw';FLUSH PRIVILEGES;"
 mysql -u root -p$root_pw -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$root_pw';FLUSH PRIVILEGES;"
-mysql -u root -p$root_pw -e "ALTER DATABASE cowrie CHARACTER SET utf8 COLLATE utf8_general_ci;"
+mysql -u root -p$root_pw -e "ALTER DATABASE $database CHARACTER SET utf8 COLLATE utf8_general_ci;"
 
 su - cowrie
 exit
