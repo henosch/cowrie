@@ -1,0 +1,17 @@
+# rename default user
+
+python3 bin/fsctl share/cowrie/fs.pickle
+
+fs.pickle:/$ 
+mv /home/phil /home/pi
+
+# update pi and root files
+cd /home/pi
+rm .bashrc
+rm .bash_logout
+rm .profile
+touch .bashrc 3523
+touch .bash_logout 220
+touch .profile 807
+touch data.iso 92886
+touch mypw.zip 7799
