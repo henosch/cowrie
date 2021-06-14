@@ -82,5 +82,5 @@ virtualenv --python=python3 cowrie-env
 source cowrie-env/bin/activate
 pip install --upgrade pip
 pip install --upgrade -r requirements.txt
-pip install mysql-connector-python
+pip install mysql-connector-python-8.0.16
 bin/cowrie start
