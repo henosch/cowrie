@@ -84,6 +84,7 @@ exit
 # Please manually from here.     #
 ##################################
 
+cowrie@raspberrypi:~ $
 cd cowrie
 virtualenv --python=python3 cowrie-env
 source cowrie-env/bin/activate
