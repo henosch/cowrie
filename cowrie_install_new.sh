@@ -51,7 +51,7 @@ sql_user_pw=gjzhr5bDbrbtjr@gkrTtbekl
 database=cowrie
 
 mysql -u root -p$root_pw -e "DROP USER IF EXISTS '$sql_user'@'localhost';
-mysql -u root -p$root_pw -e "DROP DATABASE IF EXISTS $database;
+mysql -u root -p$root_pw -e "DROP DATABASE IF EXISTS $database";
 
 mysql -u root -p$root_pw -e "CREATE DATABASE $database;"
 mysql -u root -p$root_pw -e "CREATE USER '$sql_user'@'localhost' IDENTIFIED BY '$sql_user_pw'";
