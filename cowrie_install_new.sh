@@ -28,6 +28,10 @@ adduser --disabled-password --gecos "" cowrie
 git clone https://github.com/cowrie/cowrie /home/cowrie/cowrie
 git clone https://github.com/henosch/cowrie /home/cowrie/custom_cowrie
 
+# mariadb fix
+# https://github.com/cowrie/cowrie/issues/1580
+sed -i 's/charset=\"utf8mb4\"/charset=\"utf8\"/g' /home/cowrie/cowrie/src/cowrie/output/mysql.py
+
 cp -r /home/cowrie/custom_cowrie/* /home/cowrie/cowrie/
 chown cowrie:cowrie -R /home/cowrie/cowrie
 
