@@ -15,3 +15,8 @@ touch .bash_logout 220
 touch .profile 807
 touch data.iso 92886
 touch mypw.zip 7799
+
+root
+cd .ssh
+rm known_hosts
+touch known_hosts 0
